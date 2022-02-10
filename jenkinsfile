@@ -1,0 +1,78 @@
+node("java") {
+    
+    
+ if(env.BRANCH_NAME == 'main' )   {
+    stage('mainbranch') { 
+        sh'''
+        echo "this is main branch"
+        '''
+        }
+ }
+ // develop branch pipeline 
+  else if(env.BRANCH_NAME == 'dev')   {
+        stage('checkout') { 
+        sh'''
+        echo "checkout dev branch"
+        '''
+        }
+        stage('compile') { 
+       
+        }
+        stage('test') { 
+   
+        }
+        stage('package') { 
+   
+        }
+        stage('scan') { 
+   
+        }        
+        stage('containerize') { 
+     
+        }
+        stage('image scan') { 
+   
+        }        
+        stage('deploy to dev') { 
+       
+        }   
+    
+
+ }
+ // feature branch pipeline
+ else if(env.BRANCH_NAME == 'feature')   {
+        stage('checkout') { 
+        sh'''
+        echo "checkout dev branch"
+        '''
+        }
+        stage('compile') { 
+       
+        }
+        stage('test') { 
+   
+        }
+        stage('package') { 
+   
+        }
+        stage('scan') { 
+   
+        }   
+        stage('upload artifacts') { 
+   
+        }               
+        stage('containerize') { 
+     
+        }
+        stage('image scan') { 
+   
+        }        
+        stage('deploy to sandbox') { 
+       
+        }   
+        stage('feature validation test') { 
+       
+        }
+ }
+          
+}
